@@ -1,0 +1,92 @@
+﻿@using EPAXSteamsContacts.Enums
+@model IEnumerable<EPAXSteamsContacts.Models.Contact>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <div class="col-md-7 w-100">
+        <div class="d-flex flex-row justify-content-between">
+            <a asp-action="AddOrEdit" class="btn btn-sm btn-success mb-4"> <i class="fa-solid fa-plus"></i> Create Contact</a>
+            <a asp-action="ExportToExcel" class="btn btn-sm btn-primary mb-4"> <i class="fa-solid fa-file-arrow-down"></i> Export to Excel</a>
+            <form asp-controller="Contacts" method="get" asp-action="Index" autocomplete="off">
+                <div class="input-group mb-3">
+                <span class="input-group-text border-0" id="search-addon"><i class="fas fa-search"></i></span>
+                <input
+                    type="search"
+                    class="form-control rounded"
+                    placeholder="Search"
+                    aria-label="Search"
+                    aria-describedby="search-addon"
+                    name="searchContact"
+                    required
+                />
+                </div>
+            </form>
+        </div>
+
+        <table class="table table-bordered table-lg align-middle text-center p-lg-5">
+            <thead class="bg-light">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FullName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.EmailAddress)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PhoneNumber)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.JobTitle)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LifecycleStage)
+                    </th>
+                    <th>
+                        Actions
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model) {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FullName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EmailAddress)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PhoneNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.JobTitle)
+                        </td>
+                        <td>
+                            @Enum.Parse(typeof(LifecycleStagesEnum), item.LifecycleStage)
+                        </td>
+                        <td>
+                            <form asp-action="Delete" asp-route-id="@item.ContactID">
+                                <div class="btn-group btn-group-sm">
+                                    <a asp-action="AddOrEdit" asp-route-id="@item.ContactID" class="btn btn-warning mr-3">
+                                    <i class="fa-solid fa-pen-to-square"></i> Edit
+                                    </a>
+                                    <button type="submit" class="btn btn-danger"
+                                    onclick="return confirm('Are you sure to delete this record?')">
+                                        <i class="far fa-trash-alt"></i> Delete
+                                    </button>
+                                </div>
+                    
+                            </form>
+                        </td>
+                    </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+

@@ -1,0 +1,62 @@
+﻿@using EPAXSteamsContacts.Enums
+@model EPAXSteamsContacts.Models.Contact
+
+@{
+    ViewData["Title"] = "Create Contact";
+}
+
+<div class="row">
+    <div class="col-md-6 offset-md-4">
+        <h1>Create Contact</h1>
+        <form asp-action="AddOrEdit" autocomplete="off">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ContactID"/>
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmailAddress" class="control-label"></label>
+                <input asp-for="EmailAddress" class="form-control" />
+                <span asp-validation-for="EmailAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhoneNumber" class="control-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="JobTitle" class="control-label"></label>
+                <input asp-for="JobTitle" class="form-control" />
+                <span asp-validation-for="JobTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LifecycleStage" class="control-label"></label> <br />
+                <select asp-for="LifecycleStage" class="form-control" asp-items="Html.GetEnumSelectList<LifecycleStagesEnum>()">
+                    <option value="">Select Lifecycle Stage</option>
+                </select>
+            </div>
+
+            <div class="row mt-2">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary w-100"/>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <a asp-action="Index" class="btn btn-secondary w-100">Back to List</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
