@@ -298,7 +298,7 @@ img, svg {
 
 table {
     caption-side: bottom;
-    border-collapse: collapse
+    border-collapse: collapse;
 }
 
 caption {
@@ -309,14 +309,14 @@ caption {
 }
 
 th {
-    text-align: inherit;
-    text-align: -webkit-match-parent
+    text-align: center;
+    text-align: -webkit-match-parent;
 }
 
 tbody, td, tfoot, th, thead, tr {
     border-color: inherit;
     border-style: solid;
-    border-width: 0
+    border-width: 0;
 }
 
 label {
@@ -2021,12 +2021,16 @@ progress {
     }
 
     .table > thead {
-        vertical-align: bottom
+        vertical-align: bottom;
     }
 
     .table > :not(:first-child) {
-        border-top: 2px solid currentColor
+        border-top: 2px solid currentColor;
     }
+
+    .table-heading-row {
+        padding: 20px 0;
+    } 
 
 .caption-top {
     caption-side: top
