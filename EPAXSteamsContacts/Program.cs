@@ -1,7 +1,5 @@
 using EPAXSteamsContacts.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity;
-using EPAXSteamsContacts.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
