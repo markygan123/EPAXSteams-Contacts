@@ -1,5 +1,5 @@
 # EPAXSteams-Contacts
-Marketing Contacts web app built in C#/.Net for EPAXSteams. Built to help manage the company's marketing contacts without paying for a CRM.
+Marketing Contacts web app built in C#/.Net for EPAXSteams. Built to manage the company's marketing contacts without paying for a CRM.
 
 ![image](https://user-images.githubusercontent.com/11957289/181696815-95a38476-26ea-43a1-b434-b876061ebe06.png)
 
